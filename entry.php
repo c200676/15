@@ -74,8 +74,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		</dd>
 		</dl>
 /* (3)  リンク表示処理を記述                      */
-        /* <div><a href=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  修正する</a>
-		<div><a href="input.php?action=rewrite">&laquo;&nbsp;修正する</a>　|　
+       
+		<div><a href="input.php?action=rewrite">&laquo;&nbsp;修正する</a>　
 			<input type="submit" value="登録する" />
 		</div>
 		</form>
