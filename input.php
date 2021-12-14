@@ -33,15 +33,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       $dbh = db_conn();
       try{
 /* (1) 実行するSQL文を用意する            */
-          /* $sql = 'xxxxxxxxxxxxx';  */
+          $sql = 'select count * as cnt from members where email=?';  
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':email', $email, PDO::PARAM_STR);
           $stmt->execute();
 		  $record = $stmt->fetch();
 /* (2) 条件判定を記述            */
-          /* if ( xxxxxxxx ) { */
-			  $error['email'] = 'duplicate';   // eメール重複エラー
-		  }
+           if ($record['cnt'] > 0){
+		$error['email'] = 'duplicate';   // eメール重複エラー
+	   }
       }catch (PDOException $e){
           echo($e->getMessage());
           die();
